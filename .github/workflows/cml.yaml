@@ -4,14 +4,12 @@ jobs:
   run:
     runs-on: ubuntu-latest
     # optionally use a convenient Ubuntu LTS + DVC + CML image
-    container: docker://ghcr.io/iterative/cml:0-dvc2-base1
+    container: docker:/dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
       - name: cml_run
         env:
            repo_token: ${{ secrets.TOKEN }}
-      - uses: iterative/setup-cml@v1
-      - name: Train model
         run: |
           # Your ML workflow goes here
           pip install -r requirements.txt
